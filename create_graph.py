@@ -3,7 +3,7 @@ from time import time
 from collections import defaultdict
 import zeusdb
 
-PATH = "data/"
+PATH = "graph_data/"
 person_id = {}
 
 def tsv2list(path):
