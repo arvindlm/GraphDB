@@ -15,9 +15,11 @@ EDGE_TABLE = "edge"
 # automatically discover the rest of the nodes in the
 # cluster and connect to them, so you don't need to
 # list every node in your cluster.
+print "Connecting with the cassandra cluster"
 cluster = Cluster()
 session = cluster.connect(KEYSPACE)
-
+print "Connected"
+print
 
 def get_uuid():
 	return uuid.uuid1()
@@ -60,10 +62,10 @@ def get_dict_from_row(row):
 
 # CREATE NODE
 def create_node(props):
-	props['id'] = get_uuid()
+	props['zid'] = get_uuid()
 	check_and_create_columns(props.keys(), NODE_TABLE)
 	insert_props(props, NODE_TABLE)
-	return props['id']
+	return props['zid']
 
 # CREATE EDGE
 def create_edge(props):
@@ -74,15 +76,15 @@ def create_edge(props):
 	if "destination" not in props.keys():
 		print "ERROR: No destination node id specified. Use key destination in props"
 	props["destination"] = uuid.UUID(props["destination"])
-	props["id"] = get_uuid()
+	props["zid"] = get_uuid()
 	check_and_create_columns(props.keys(), EDGE_TABLE)
 	insert_props(props, EDGE_TABLE)
-	return props["id"]
+	return props["zid"]
 
 # GET NODE BY ID
 def get_node_by_id(_id):
 	_id = uuid.UUID(_id)
-	query = "SELECT * FROM " + NODE_TABLE + " WHERE id=%s"
+	query = "SELECT * FROM " + NODE_TABLE + " WHERE zid=%s"
 	rows = session.execute(query, (_id,))
 	res = []
 	for row in rows:
@@ -99,5 +101,3 @@ def get_neighbours(_id):
 	for dest in destinations:
 		res.extend(get_node_by_id(dest))
 	return res
-
-print get_neighbours("efff159a-a6e5-11e6-93f6-0618bb5b379d")
