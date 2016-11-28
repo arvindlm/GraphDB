@@ -16,7 +16,7 @@ apt-get install libev4 libev-dev
 pip install --install-option="--no-cython" cassandra-driver
 ```
 
-# Installing cassandra
+## Installing cassandra
 First install java
 ```
 sudo add-apt-repository ppa:webupd8team/java
@@ -41,5 +41,6 @@ Finally, restart cassandra
 ```
 service cassandra restart
 ```
+Do this individually in all the nodes in the cluster
 
 In case of confusions, just go to [this link](broadcast_rpc_address) and follow method 2
