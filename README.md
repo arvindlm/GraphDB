@@ -32,11 +32,11 @@ sudo apt-get install cassandra=3.0.0
 sudo service cassandra status
 ```
 Now, open config at /etc/cassandra/cassandra.yaml and
-	- set listen_address to the private ip
-	- set broadcast_address to the public ip
-	- set rpc_address to 0.0.0.0
-	- set broadcast_rpc_address to the private ip
-	- set seeds in seed_provider to a comma separated list of all the public ip in the cluster
+- set listen_address to the private ip
+- set broadcast_address to the public ip
+- set rpc_address to 0.0.0.0
+- set broadcast_rpc_address to the private ip
+- set seeds in seed_provider to a comma separated list of all the public ip in the cluster
 Finally, restart cassandra
 ```
 service cassandra restart
