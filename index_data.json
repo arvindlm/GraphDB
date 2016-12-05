@@ -1,0 +1,1 @@
+{"node": {"index_info": [], "index_fields": []}, "edge": {"index_info": [["edge_index15", "test_type2"], ["edge_index16", "test_type2"], ["edge_index17", "test_type2"]], "index_fields": ["type", "destination", "type", "destination", "type", "destination"]}}
