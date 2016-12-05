@@ -79,7 +79,6 @@ def create_location_nodes():
 	print "Reading checkin nodes data file"
 	checkin_nodes = tsv2list(PATH+"checkins.txt")
 	location_nodes = {}
-	print "read file...done"
 	for node in checkin_nodes:
 		if not node[4]:
 			continue
