@@ -47,8 +47,8 @@ def read_id_map(filename):
 	id_map = {}
 	with open(filename) as infile:
 		for line in infile:
-			key = line.split(' ')[0]
-			val = line.split(' ')[1]
+			key = line.rstrip('\n').rstrip('\r').split(' ')[0]
+			val = line.rstrip('\n').rstrip('\r').split(' ')[1]
 			id_map[key] = val
 	return id_map
 

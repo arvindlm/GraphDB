@@ -3,7 +3,7 @@ import utils
 def create_person_nodes():
 	print
 	print "Reading person nodes data file"
-	person_nodes = utils.tsv2list(PATH+"personNodes.txt")
+	person_nodes = utils.tsv2list(utils.PATH+"personNodes.txt")
 	person_nodes = [{"id": x[0],
 					 "first_name": x[1],
 					 "last_name": x[2],
@@ -19,13 +19,13 @@ def create_person_nodes():
 def create_person_edges(person_id_map):
 	print
 	print "Reading person edges data file"
-	person_edges = tsv2list(PATH+"personEdges.txt")
+	person_edges = utils.tsv2list(utils.PATH+"personEdges.txt")
 	person_edges = [{"source": person_id_map[x[0]],
 					 "destination": person_id_map[x[1]],
 					 "type": "friend"
 					} for x in person_edges]
 	print "Creating person edges"
-	bulk_create_edges(person_edges)
+	utils.bulk_create_edges(person_edges)
 	print
 
 def main():
