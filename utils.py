@@ -35,6 +35,7 @@ def bulk_create_edges(edges):
 	i = 1
 	start_time = time()
 	for edge in edges:
+		#print edge
 		zeusdb.create_edge(edge)
 		sys.stdout.write("\rCreated "+str(i)+" edges out of "+str(total)+" edges")
 		sys.stdout.flush()

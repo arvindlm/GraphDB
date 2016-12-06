@@ -43,11 +43,11 @@ def create_location_edges(checkin_nodes, location_map):
 	print
 
 def main():
-	#checkin_nodes, location_map = create_location_nodes()
-	#utils.save_id_map(location_map,'location_id_map.txt')
-	location_map = utils.read_id_map('location_id_map.txt')
-	checkin_nodes  = utils.tsv2list(utils.PATH+"checkins.txt")
-	create_location_edges(checkin_nodes, location_map)
+	checkin_nodes, location_map = create_location_nodes()
+	utils.save_id_map(location_map,'location_id_map.txt')
+	#location_map = utils.read_id_map('location_id_map.txt')
+	#checkin_nodes  = utils.tsv2list(utils.PATH+"checkins.txt")
+	#create_location_edges(checkin_nodes, location_map)
 	print "DONE"
 	print
 
