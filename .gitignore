@@ -2,4 +2,4 @@
 *.pyc
 graph_data/*
 elasticsearch*
-*_id_map*
+
