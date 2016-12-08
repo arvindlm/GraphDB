@@ -1,4 +1,4 @@
-BASE_URL = "/mock";
+BASE_URL = "/GraphDB/mock";
 
 INFO_URL = BASE_URL + "/info";
 NODE_URL = BASE_URL + "/node";
