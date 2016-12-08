@@ -1,0 +1,38 @@
+[
+	{
+		"url": "/info",
+		"type": "GET",
+		"definition": "Simply fetches the current database state",
+		"params": []
+	},
+	{
+		"url": "/node/query",
+		"type": "GET",
+		"definition": "Fetch node with matching query. Takes in node fields as a json parameter",
+		"params": ["query"]
+	},
+	{
+		"url": "/node",
+		"type": "POST",
+		"definition": "Creates a new node with the given json data",
+		"params": ["data"]
+	},
+	{
+		"url": "/node/[node_id]",
+		"type": "DELETE",
+		"definition": "Deletes the node with the given id",
+		"params": []
+	},
+	{
+		"url": "/node/[node_id]/neighbour",
+		"type": "GET",
+		"definition": "Gets all the neighbouring nodes of the given node id",
+		"params": []
+	},
+	{
+		"url": "/edge/[source_id]/[target_id]",
+		"type": "GET",
+		"definition": "Gets all the edges connecting the two given node ids",
+		"params": []
+	}
+]

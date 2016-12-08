@@ -1,0 +1,15 @@
+{
+	"success": true,
+	"data": 
+		[
+			{
+				"first_name": "Steven",
+				"last_name": "Strange",
+				"gender": "male",
+				"age": 34,
+				"type": "person",
+				"id": 123,
+				"zid": "bc82e412-af5d-440e-9664-399860c9cf2f"
+			}
+		]
+}
