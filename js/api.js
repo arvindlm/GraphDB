@@ -1,4 +1,4 @@
-BASE_URL = "/GraphDB/mock";
+BASE_URL = "ec2-54-187-92-200.us-west-2.compute.amazonaws.com/";
 
 INFO_URL = BASE_URL + "/info";
 NODE_URL = BASE_URL + "/node";
