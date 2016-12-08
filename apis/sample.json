@@ -1,0 +1,75 @@
+//create_node : person
+//http://127.0.0.1:5000/node POST
+{
+  "age": "33\r",
+  "first_name": "Monty",
+  "gender": "Male",
+  "id": "444000999111",
+  "last_name": "Python",
+  "type": "person"
+}
+	{
+	  "data": {
+	    "age": "33\r",
+	    "first_name": "Monty",
+	    "gender": "Male",
+	    "id": "444000999111",
+	    "last_name": "Python",
+	    "type": "person",
+	    "zid": "3f262c8c-bd8c-11e6-854a-3052cb72322b"
+	  },
+	  "success": true
+	}
+
+
+//create_node : location
+//http://127.0.0.1:5000/node :POST
+{
+	"latitude": "39.834",
+	"longitude": "-1.0",
+	"type": "location"
+}
+	{
+	  "data": {
+	    "latitude": "39.834",
+	    "longitude": "-1.0",
+	    "type": "location",
+	    "zid": "5e25467a-bd8e-11e6-a5d2-3052cb72322b"
+	  },
+	  "success": true
+	}
+
+//create_edge : checkin
+//http://127.0.0.1:5000/edge : POST
+{
+	"source": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+	"destination": "5e25467a-bd8e-11e6-a5d2-3052cb72322b",
+	"visit_count": "4",
+	"type": "visited"
+}
+	{
+	  "data": {
+	    "destination": "5e25467a-bd8e-11e6-a5d2-3052cb72322b",
+	    "node_id": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+	    "type": "visited",
+	    "visit_count": "4",
+	    "zid": "2373ec9c-bd8f-11e6-9a00-3052cb72322b"
+	  },
+	  "success": true
+	}
+//create_edge : friend
+//http://127.0.0.1:5000/edge : POST
+{
+	"source": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+	"destination": "c1883dc8-bbbb-11e6-bcef-06209f2c56f5",
+	"type": "friend"
+}
+	{
+	  "data": {
+	    "destination": "c1883dc8-bbbb-11e6-bcef-06209f2c56f5",
+	    "node_id": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+	    "type": "friend",
+	    "zid": "73e390d8-bd8f-11e6-9a00-3052cb72322b"
+	  },
+	  "success": true
+	}
