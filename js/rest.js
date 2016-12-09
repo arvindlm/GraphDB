@@ -1,7 +1,7 @@
 
 
 function main(){
-	$.getJSON("http://0.0.0.0:31338/restConfig.json", loadPage);
+	$.getJSON("/restConfig.json", loadPage);
 }
 
 function renderApi(log){
