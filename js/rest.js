@@ -1,7 +1,7 @@
 
 
 function main(){
-	$.getJSON("/restConfig.json", loadPage);
+	$.getJSON("/GraphDB/restConfig.json", loadPage);
 }
 
 function renderApi(log){
