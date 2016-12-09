@@ -17,7 +17,9 @@ def get_node_by_id(node_id):
 
 @app.route('/node',methods=['POST'])
 def create_node():
-	props = request.json
+	#converting json string todictionary
+	props = eval(request.json['data'])
+	print props
 	zid = zdb.create_node(props)
 	props['zid'] = zid
 	return jsonify({"data": props, "success": True})
