@@ -44,3 +44,11 @@ service cassandra restart
 Do this individually in all the nodes in the cluster
 
 In case of confusions, just go to [this link](broadcast_rpc_address) and follow method 2
+
+## Running spark scripts
+- Install spark ([reference](http://sparkdeveloper.com/2015/11/04/setting-up-a-standalone-apache-spark-1-5-1-cluster-on-ubuntu/))
+- Edit the scripts and replace the string "YOUR_CLUSTER_HOST_NAME" with your Cassandra cluster host names
+- Use the following command to run the script
+```
+bin/spark-submit --packages TargetHolding:pyspark-cassandra:0.3.5 ZeusDB/age_demographics.py
+```
