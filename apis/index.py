@@ -5,7 +5,7 @@ import json
 import requests
 
 KEYSPACE = "zeus"
-cluster = Cluster()
+cluster = Cluster(['54.218.56.39'])
 session = cluster.connect(KEYSPACE)
 
 es = Elasticsearch()
@@ -16,7 +16,7 @@ index_data = {}
 #maximum size of data to be returned from elastic search query
 SIZE = 1000000
 
-with open('index_data.json') as fp:
+with open('/home/ubuntu/GraphDB/apis/index_data.json') as fp:
     index_data = json.load(fp)
 
 

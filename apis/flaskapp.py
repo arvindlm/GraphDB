@@ -31,7 +31,7 @@ def create_edge():
 	props['zid'] = zid
 	return jsonify({"data": props, "success": True})
 
-@app.route('/node/<node_id>/neighbours',methods=['GET'])
+@app.route('/node/<node_id>/neighbour',methods=['GET'])
 def get_neighbours(node_id):
 	data = zdb.get_neighbours(node_id)
 	return jsonify({"data": data, "success": True})
