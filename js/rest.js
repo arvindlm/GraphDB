@@ -59,7 +59,9 @@ function bindLogEvents(log){
 				new_url = new_url.replace(match[0], $("#"+log.id+match[1]).val());
 			}
 		}
-
+		if(log.type == "POST"){
+			params = JSON.stringify(params);
+		}
 		$.ajax({
 			"url": BASE_URL+new_url,
 			"method": log.type,
