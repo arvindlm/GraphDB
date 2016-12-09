@@ -16,7 +16,7 @@ EDGE_TABLE = "edge"
 # cluster and connect to them, so you don't need to
 # list every node in your cluster.
 print "Connecting with the cassandra cluster"
-cluster = Cluster()
+cluster = Cluster(['54.218.56.39'])
 session = cluster.connect(KEYSPACE)
 print "Connected"
 print
