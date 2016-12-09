@@ -59,14 +59,18 @@ function bindLogEvents(log){
 				new_url = new_url.replace(match[0], $("#"+log.id+match[1]).val());
 			}
 		}
-		if(log.type == "POST"){
-			params = JSON.stringify(params);
-		}
-		$.ajax({
+		
+		var req_params = {
 			"url": BASE_URL+new_url,
 			"method": log.type,
 			"data": params
-		}).done(function(data){
+		};
+		if(log.type == "POST"){
+			req_params["data"] = JSON.stringify(req_params["data"]);
+			req_params["dataType"] = "json";
+			req_params["contentType"] = "application/json";
+		}
+		$.ajax(req_params).done(function(data){
 			if(typeof data === "string"){
 				data = JSON.parse(data);
 			}
