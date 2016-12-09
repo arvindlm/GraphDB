@@ -153,3 +153,22 @@ def delete_node(_id):
 	query = "DELETE FROM " + NODE_TABLE + " WHERE zid=%s"
 	session.execute(query, (_id,))
 	return
+
+# GET NODE/EDGE BY PROPERTY
+def get_object_by_property(table, properties):
+        for prop in properties:
+                if not index.is_field_indexed(table, prop):
+                        print "Index not created for one or more properties"
+                        return
+        body = index.build_query_json(properties)
+        items = index.search_all_indexes(table, body)
+	res = []
+        for item in items
+		res.push(get_node_by_id(item)
+	return res
+
+def get_node_by_property(properties):
+	return get_object_by_property(NODE_TABLE, properties)
+
+def get_edge_by_property(properties):
+	return get_object_by_property(EDGE_TABLE, properties)
