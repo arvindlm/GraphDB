@@ -52,3 +52,4 @@ In case of confusions, just go to [this link](broadcast_rpc_address) and follow 
 ```
 bin/spark-submit --packages TargetHolding:pyspark-cassandra:0.3.5 ZeusDB/age_demographics.py
 ```
+[PySpark Cassandra reference](https://github.com/TargetHolding/pyspark-cassandra)
