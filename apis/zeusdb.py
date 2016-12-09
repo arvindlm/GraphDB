@@ -113,3 +113,43 @@ def get_neighbours(_id):
 		res.extend(get_node_by_id(str(dest)))
 	return res
 
+#GET EDGE BY SOURCE AND DESTINATION
+def get_edge_between_nodes(source_id,destination_id):
+	_sid = uuid.UUID(source_id)
+	_did = uuid.UUID(destination_id)
+	query = "SELECT * FROM " + EDGE_TABLE + " WHERE node_id=%s AND destination=%s"
+	rows = session.execute(query, (_sid,_did))
+	res = []
+	for row in rows:
+		res.append(get_dict_from_row(row))
+	return res
+
+#DELETE EDGE BY ID AND NODE_ID
+def delete_edge(_id,node_id):
+	_id = uuid.UUID(_id)
+	node_id = uuid.UUID(node_id)
+	query = "DELETE FROM " + EDGE_TABLE + " WHERE zid=%s AND node_id=%s"
+	#call for deleting edge in index table
+	rows = session.execute(query, (_id,node_id))
+	res = []
+	for row in rows:
+		res.append(get_dict_from_row(row))
+	return res
+
+def delete_node(_id):
+	_id = uuid.UUID(_id)
+	query = "SELECT * FROM " + EDGE_TABLE + " WHERE node_id=%s"
+	rows = session.execute(query, (_id,))
+	edges = []
+	for row in rows:
+		edges.append(get_dict_from_row(row))
+
+	#deleting all edges linked to the node
+	for edge in edges:
+		zid = uuid.UUID(edge['zid'])
+		query = "DELETE FROM " + EDGE_TABLE + " WHERE node_id=%s AND zid=%s"
+		session.execute(query,(_id,zid))
+
+	query = "DELETE FROM " + NODE_TABLE + " WHERE zid=%s"
+	session.execute(query, (_id,))
+	return

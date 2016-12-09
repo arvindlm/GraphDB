@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask.ext.cors import CORS
 import zeusdb as zdb
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/info',methods=['GET'])
 def get_info():
@@ -30,6 +32,21 @@ def create_edge():
 @app.route('/node/<node_id>/neighbours',methods=['GET'])
 def get_neighbours(node_id):
 	data = zdb.get_neighbours(node_id)
+	return jsonify({"data": data, "success": True})
+
+@app.route('/edge/<source_id>/<destination_id>',methods=['GET'])
+def get_edge_between_nodes(source_id,destination_id):
+	data = zdb.get_edge_between_nodes(source_id,destination_id)
+	return jsonify({"data": data, "success": True})
+
+@app.route('/edge/<edge_id>/<node_id>',methods=['DELETE'])
+def delete_edge(edge_id,node_id):
+	data = zdb.delete_edge(edge_id,node_id)
+	return jsonify({"data": data, "success": True})
+
+@app.route('/node/<node_id>',methods=['DELETE'])
+def delete_node(node_id):
+	data = zdb.delete_node(node_id)
 	return jsonify({"data": data, "success": True})
 
 if __name__ == '__main__':

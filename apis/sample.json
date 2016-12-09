@@ -73,3 +73,27 @@
 	  },
 	  "success": true
 	}
+
+//get_edge :
+//http://127.0.0.1:5000/edge/[source_id]/[target_id] : GET
+{
+	"source": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+	"destination": "c1883dc8-bbbb-11e6-bcef-06209f2c56f5",
+}
+{
+  "data": [
+    {
+      "destination": "c1883dc8-bbbb-11e6-bcef-06209f2c56f5",
+      "node_id": "3f262c8c-bd8c-11e6-854a-3052cb72322b",
+      "type": "friend",
+      "zid": "73e390d8-bd8f-11e6-9a00-3052cb72322b"
+    }
+  ],
+  "success": true
+}
+
+//delete edge:
+//http://127.0.0.1:5000/edge/[edge_id]/[node_id] : DELETE
+
+//delete node
+//http://127.0.0.1:5000/node/[node_id] : DELETE
