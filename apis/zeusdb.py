@@ -164,7 +164,7 @@ def get_object_by_property(table, properties):
 	items = index.search_all_indexes(table, body)
 	res = []
 	for item in items:
-		res.push(get_node_by_id(item))
+		res.push(get_node_by_id(item)[0])
 			
 	return res
 

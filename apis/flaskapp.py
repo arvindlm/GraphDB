@@ -26,7 +26,7 @@ def create_node():
 
 @app.route('/edge',methods=['POST'])
 def create_edge():
-	props = request.json
+	props = eval(request.json['data'])
 	zid = zdb.create_edge(props)
 	props['zid'] = zid
 	return jsonify({"data": props, "success": True})
@@ -49,6 +49,20 @@ def delete_edge(edge_id,node_id):
 @app.route('/node/<node_id>',methods=['DELETE'])
 def delete_node(node_id):
 	data = zdb.delete_node(node_id)
+	return jsonify({"data": data, "success": True})
+
+@app.route('/node',methods=['GET'])
+def get_node_by_prop():
+	query =  eval(request.args.get('data'))
+	print 'query=',query
+	data = zdb.get_node_by_property(query)
+	return jsonify({"data": data, "success": True})
+
+@app.route('/edge',methods=['GET'])
+def get_edge_by_prop():
+	query =  eval(request.args.get('data'))
+	print 'query=',query
+	data = zdb.get_edge_by_property(query)
 	return jsonify({"data": data, "success": True})
 
 if __name__ == '__main__':
