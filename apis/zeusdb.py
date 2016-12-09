@@ -1,6 +1,6 @@
 import uuid
 from cassandra.cluster import Cluster
-
+import index
 
 KEYSPACE = "zeus"
 NODE_TABLE = "node"
